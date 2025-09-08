@@ -1,0 +1,305 @@
+/* ===== Paleta ===== */  
+:root{
+  --terra-500:#16a34a;  /* verde base botones */
+  --terra-600:#12833b;
+  --lime:#D4FF00;       /* verde limón */
+  --body-dark:#0b1725;
+  --primary: var(--terra-500);
+  --theme-primary: var(--terra-500);
+}
+
+/* ===== Ocultar chrome de Streamlit ===== */
+#MainMenu, header, footer { visibility: hidden !important; height: 0 !important; margin:0 !important; padding:0 !important; }
+header, [data-testid="stHeader"], [data-testid="stToolbar"], [data-testid="stDecoration"], [data-testid="stStatusWidget"], [data-testid="stFooter"]{
+  display:none !important; height:0 !important; min-height:0 !important;
+  background:transparent !important; box-shadow:none !important; border:0 !important;
+}
+[data-testid="stSidebar"]{ display:none !important; }
+
+/* ===== Texto global ===== */
+html, body, [data-testid="stAppViewContainer"] *{
+  color:#ffffff !important;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+html, body{ margin:0; padding:0; }
+
+/* ===== Contenedor ===== */
+.block-container{ max-width: 1100px !important; margin: 0 auto !important; padding-top: 0 !important; }
+
+/* ===== Portada ===== */
+.hero-title{ text-align:center; margin:.5rem 0 .25rem; font-size:2.2rem; font-weight:900; }
+
+/* Párrafo justificado con líneas más extensas */
+.hero-text{
+  max-width: 960px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1.12rem;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: none;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+/* ===== Quiz: Logo centrado ===== */
+.quiz-top{ display:flex; justify-content:center; }
+.quiz-logo img{ width:360px; max-width:95%; display:block; margin:6px auto 0; }
+
+/* ===== KPIs flotantes ===== */
+.kpi-floating{
+  position: fixed; right: 24px; bottom: 24px; z-index: 9999;
+  display:flex; gap:10px; align-items:center;
+}
+.kpi-floating .pill{
+  background: rgba(255,255,255,.94) !important;
+  border:1px solid #ffffff !important;
+  color:#000000 !important;
+  padding:8px 12px; border-radius:12px; font-weight:800;
+}
+.kpi-floating .score{ color:#000000 !important; }
+
+/* ===== Tarjeta del quiz desactivada ===== */
+.quiz-card{ background: transparent !important; border:0 !important; box-shadow:none !important; padding:0 !important; }
+
+/* ===== Progreso ===== */
+.progress-wrap{ margin: 10px 0 12px 0; height:14px; background:#e6f4ea; border:1px solid #cde9d1; border-radius:999px; overflow:hidden; }
+.progress-bar{ height:100%; width:0%; background: linear-gradient(90deg,#22c55e,#16a34a); transition: width .3s ease; }
+.progress-label{ margin-top:6px; font-size:.92rem; color:#e7f9ee; font-weight:800; text-shadow: 0 1px 2px rgba(0,0,0,.25); }
+
+/* ===== Acciones ===== */
+.actions, .actions.next{ display:flex; justify-content:center; gap:14px; margin-top:14px; }
+
+/* ===== Inputs (BLANCOS) ===== */
+[data-testid="stTextInput"]{
+  max-width:300px !important; margin: 0 auto !important;
+}
+[data-testid="stTextInput"] > div{
+  background:#ffffff !important; border:1px solid #ffffff !important;
+  border-radius:10px !important;
+}
+[data-testid="stTextInput"] input{
+  background:#ffffff !important; color:#0f172a !important;
+}
+[data-testid="stTextInput"] input::placeholder{
+  color:#475569 !important;
+}
+div[data-baseweb="input"]{
+  background:#ffffff !important; color:#0f172a !important;
+  border:1px solid #ffffff !important; border-radius:10px !important;
+}
+
+/* ===== Radios ===== */
+input[type="radio"]{ accent-color: var(--terra-500) !important; }
+label[data-baseweb="radio"] > div:first-child{ border-color: var(--terra-500) !important; background: transparent !important; }
+label[data-baseweb="radio"] > div:first-child > div{ background: transparent !important; }
+label[data-baseweb="radio"]:has(input:checked) > div:first-child > div{ background: #ffffff !important; }
+label[data-baseweb="radio"] input:checked ~ div:first-child > div{ background: #ffffff !important; }
+div[role="radiogroup"] svg{ color: var(--terra-500) !important; fill: var(--terra-500) !important; }
+div[role="radiogroup"] label > div:first-child{ border-color: var(--terra-500) !important; }
+div[role="radiogroup"] label > div:first-child > div{ background: var(--terra-500) !important; }
+
+/* ===== Botones VERDES ===== */
+div[data-testid="stAppViewContainer"] button,
+div[data-testid="stAppViewContainer"] .stButton > button,
+div[data-testid="stAppViewContainer"] .stDownloadButton > button,
+div[data-testid="stAppViewContainer"] [role="button"],
+button:not([disabled]):not(.stDisabledButton),
+.stButton button[class*="css-"]{
+  border-radius:12px !important; padding:10px 18px !important;
+  border:1px solid #ffffff !important;
+  background:var(--terra-500) !important; background-image:none !important;
+  color:#ffffff !important; font-weight:700 !important;
+  box-shadow:0 6px 18px rgba(0,0,0,.15) !important;
+}
+div[data-testid="stAppViewContainer"] button:hover { filter:brightness(1.06) !important; }
+div[data-testid="stAppViewContainer"] button:active { transform: translateY(0) !important; box-shadow:0 4px 12px rgba(0,0,0,.12) !important; }
+div[data-testid="stAppViewContainer"] button:focus { outline:none !important; box-shadow:0 0 0 3px rgba(212,255,0,.18) !important; }
+
+/* ===== Chip rango ===== */
+.rank-chip{ background:#f1f5f9 !important; border:1px solid #ffffff !important; color:#0f172a !important; padding:6px 12px !important; border-radius:999px !important; font-weight:700 !important; }
+
+/* ===== Imagen por rango (más chica) ===== */
+.rank-meme{
+  display:flex; justify-content:center; align-items:center;
+  margin: 12px 0 18px;
+}
+.rank-meme img{
+  width: 380px; /* más chica */
+  max-width: 92%; height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+/* ===== Frase motivadora (cuadro blanco y cómodo) ===== */
+.motivational-quote{
+  margin: 22px auto 26px;
+  padding: 18px 22px;
+  max-width: 980px;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  font-size: 1.22rem !important;
+  font-weight: 800 !important;
+  line-height: 1.55;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  text-align: center;
+}
+
+/* ===== Puntaje final ===== */
+[data-testid="stMetricValue"], [data-testid="stMetricValue"] > div{ color: var(--terra-500) !important; }
+
+/* ===== Ranking (cuadro blanco, texto negro; Top 5 resaltado) ===== */
+.leaderboard-box{
+  margin-top: 12px;
+  background:#ffffff !important;
+  color:#0f172a !important;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  padding: 10px 12px;
+  overflow:auto;
+}
+.leaderboard-box *{
+  color:#0f172a !important; /* asegura texto negro dentro del cuadro */
+}
+.leaderboard-table{
+  width:100%;
+  border-collapse: collapse;
+  font-size: .98rem;
+}
+.leaderboard-table thead th{
+  text-align:left;
+  padding:10px 8px;
+  border-bottom:1px solid #e2e8f0;
+  font-weight:800;
+}
+.leaderboard-table td{
+  padding:10px 8px;
+  border-bottom:1px solid #f1f5f9;
+}
+.leaderboard-table .pos{ width:60px; font-weight:800; }
+.leaderboard-table .score-cell{ font-weight:800; }
+.leaderboard-row.top5{
+  background: var(--terra-500) !important;
+}
+.leaderboard-row.top5 *{
+  color:#ffffff !important; /* Top 5 con color como los botones */
+}
+
+/* ===== DataFrame ranking (por si usás) ===== */
+.stDataFrame{ border-radius:12px; overflow:hidden; }
+
+/* ===== Reforzar variables de tema ===== */
+:root { --primary: var(--terra-500) !important; --theme-primary: var(--terra-500) !important; }
+
+/* ===== Responsive ===== */
+@media (max-width:640px){
+  .quiz-logo img{ width:240px; }
+  .kpi-floating{ right: 12px; bottom: 12px; }
+  .rank-meme img{ width: 260px; max-width: 94%; } /* más chica en mobile */
+}
+
+/* =========================================================
+   FOX ROAD (zorro avanzando de GYMTONIC -> Terra)
+   Sin romper estilos globales. Forzamos texto oscuro dentro.
+   ========================================================= */
+.foxy-wrap{ width:100%; max-width: 1020px; margin: 10px auto 18px; }
+.foxy-title{
+  text-align:center; margin: 6px 0 10px;
+  font-size: clamp(20px, 3.2vw, 34px); font-weight: 900;
+}
+.foxy-title *{ color:#ffffff !important; } /* mantener título blanco */
+
+.foxy-scene{
+  position: relative;
+  width: 100%;
+  height: 150px;
+  user-select: none;
+}
+
+.foxy-scene .label-dark{ color:#0f172a !important; } /* sobreescribe blanco global */
+
+.foxy-endpoints{
+  position: relative;
+  width: 100%;
+  height: 36px;
+  margin-bottom: 6px;
+}
+.foxy-left, .foxy-right{
+  position: absolute; top: 0;
+  text-align:center; font-size: 22px; line-height:1;
+}
+.foxy-left{ left: 0; transform: translateY(0); }
+.foxy-right{ right: 0; transform: translateY(0); }
+.foxy-endcap{
+  display:block; font-size: 12px; margin-top: 2px; font-weight:800;
+}
+
+/* Camino: gris con centro blanco ("calle") */
+.foxy-road{
+  position:absolute; left:0; right:0; top:50%; transform: translateY(-50%);
+  height: 58px; border-radius: 999px;
+  background:
+    linear-gradient(
+      to bottom,
+      #b9bfc7 0%,
+      #b9bfc7 33%,
+      #ffffff 33%,
+      #ffffff 67%,
+      #b9bfc7 67%,
+      #b9bfc7 100%
+    );
+  box-shadow: 0 2px 8px rgba(0,0,0,0.14) inset, 0 8px 18px rgba(0,0,0,0.12);
+}
+
+/* Línea discontinua central sutil */
+.foxy-road:after{
+  content:"";
+  position:absolute; left: 2%; right: 2%; top:50%; transform: translateY(-50%);
+  height: 4px;
+  background:
+    repeating-linear-gradient(
+      to right,
+      rgba(0,0,0,0.10),
+      rgba(0,0,0,0.10) 18px,
+      rgba(0,0,0,0.0) 18px,
+      rgba(0,0,0,0.0) 34px
+    );
+  border-radius: 2px;
+}
+
+/* Árboles */
+.foxy-tree{
+  position:absolute; font-size: 22px;
+}
+.foxy-tree.top{ top: calc(50% - 62px); }
+.foxy-tree.bottom{ top: calc(50% + 46px); }
+
+/* Zorro */
+.foxy-fox{
+  position:absolute; top:50%; transform: translate(-50%, -50%);
+  font-size: 32px;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.25));
+  transition: left 140ms linear;
+}
+
+/* Barra de progreso finita debajo (extra visual) */
+.foxy-bar{ margin-top: 10px; }
+.foxy-bar-bg{
+  width: 100%; height: 8px; background:#e6e8eb; border-radius: 6px;
+}
+.foxy-bar-fill{
+  height:100%; width:0%; border-radius:6px; background: linear-gradient(90deg, #9aa4ae, #c3ccd5);
+  transition: width 140ms linear;
+}
+
+/* Mobile tweaks */
+@media (max-width:640px){
+  .foxy-scene{ height: 136px; }
+  .foxy-tree{ font-size: 20px; }
+  .foxy-fox{ font-size: 30px; }
+}
+
